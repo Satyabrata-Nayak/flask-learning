@@ -1,0 +1,32 @@
+{% extends 'layout.html' %} {% block content %}
+<a href="{{url_for('home')}}">Home</a>
+<br />
+<br />
+<div>
+  <table>
+    {% for id, dict in data.items() %}
+    <tr>
+      <th>ID</td>
+      <td>{{id}}</td>
+    </tr>
+
+    <tr>
+      <th>Name</td>
+      <td>{{dict["name"]}}</td>
+    </tr>
+    <tr>
+      <th>Age</td>
+      <td>{{dict["age"]}}</td>
+    </tr>
+    <tr>
+      <th>Position</td>
+      <td>{{dict["position"]}}</td>
+    </tr>
+    <tr>
+      <td><br /></td>
+    </tr>
+
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

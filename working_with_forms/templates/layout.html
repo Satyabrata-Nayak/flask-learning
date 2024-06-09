@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <style>
+      form{
+        margin: 20px;
+      }
+      .nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 20px;
+      }
+      ul{
+        
+        display: flex;
+        list-style-type: none;
+        ;
+      }
+      li{
+        margin: 0px 5px;
+      }
+      a{
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Welcome to the {{title}} Page</h1>
+      <ul>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('signin')}}">SignIn</a></li>
+        <li><a href="{{url_for('signup')}}">SignUp</a></li>
+      </ul>
+    </div>
+    
+    
+
+    {% with messages= get_flashed_messages()  %}
+      {% if messages %}
+        {% for message in messages %}
+          <h3>{{message}}</h3>
+        {% endfor %}
+        
+      {% endif %}
+    {% endwith %}
+
+    {% block content %} {% endblock %}
+  </body>
+</html>

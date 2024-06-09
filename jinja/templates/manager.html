@@ -1,0 +1,31 @@
+{% extends 'layout.html' %} {% block content %}
+<a href="{{url_for('home')}}">Home</a>
+<br />
+<div>
+  <table>
+    {% for id, dict in data.items() %} {% if dict["position"].lower()=="manager"
+    %}
+    <tr>
+      <td>ID</td>
+      <td>{{id}}</td>
+    </tr>
+
+    <tr>
+      <td>Name</td>
+      <td>{{dict["name"]}}</td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td>{{dict["age"]}}</td>
+    </tr>
+    <tr>
+      <td>Position</td>
+      <td>{{dict["position"]}}</td>
+    </tr>
+    <tr>
+      <td><br /></td>
+    </tr>
+    {% endif %} {% endfor %}
+  </table>
+</div>
+{% endblock %}
